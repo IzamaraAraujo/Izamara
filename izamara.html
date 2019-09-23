@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  <!corrigi erro de acentuação>
+		<title> Formulário </title>
+		
+		<script type="text/javascript"  src="validacao.js"></script> <!inserir java>
+		<script type="text/javascript"  src="validacaotel.js"></script>
+		<script type="text/javascript">
+			
+			function verificarRedes(){
+			
+			if (formulario.redes.value=="sim"){
+			
+				document.getElementById('facebook').disabled=false;
+				document.getElementById('instagram').disabled=false;
+				document.getElementById('linkedin').disabled=false;
+			   } else {
+			   
+			   	document.getElementById('facebook').disabled=true;
+				document.getElementById('instagram').disabled=true;
+				document.getElementById('linkedin').disabled=true;
+				}
+			} 
+
+				
+			</script>
+			
+				
+	</head>
+
+	<body>
+	
+		<form id ="formulario" name="formulario" method="post"  action= "8080.php" onSubmit="return validacaoNome();">
+			Nome:<input type="text" name="nome" /><br/><br/> <!br quebra de linha>
+
+			Telefone: <input type="text" name="telefone" id="telefone" maxlength= "12" onKeyPress = "validacaoTel()" /><br/><br/>
+			Como nos conheceu: <select name="conheceu">
+							   <option></option>
+							   <option>TV</option>
+							   <option>Internet</option>
+							   <option>Outros</option>
+							   </select><br/><br/>
+			
+			Possui redes sociais? Sim <input name="redes" type="radio" value="sim" onclick="verificarRedes();"/>
+								  Não <input type="radio" name="redes" value="nao" onclick="verificarRedes();" /><br/><br/>
+			
+				 Quais? <br/><br/>
+						<input  id= "facebook" name="redesocial[]" value="Facebook" type="checkbox"   disabled="disabled" />Facebook<br> 
+						<input id= "linkedin" name="redesocial[]" value="LinkedIn" type="checkbox"    disabled="disabled" />LinkedIn<br> 
+						<input  id= "instagram" name="redesocial[]" value="Instagram" type="checkbox"  disabled="disabled"  />Instagram<br>
+			
+			
+
+			
+			
+			<input type="submit" name="enviar1" value="Enviar"/>
+			<input type="reset" value="Limpar"/>
+		
+		
+		</form>
+		
+		
+		
+	</body>
+</html>
